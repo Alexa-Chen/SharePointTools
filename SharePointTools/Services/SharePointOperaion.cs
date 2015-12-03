@@ -25,24 +25,54 @@ namespace SharePointTools.Services
             var items = list.GetItems(new CamlQuery());
             info.ChinaAdministrationContext.Load(items);
             info.ChinaAdministrationContext.ExecuteQuery();
-                   
+
             foreach (var item in items)
             {
                 if (item[dictionarys[Constant.Name]] != null)
                 {
                     if (condition.Contains(item[dictionarys[Constant.Name]].ToString()) || condition.Contains(item[dictionarys[Constant.EnglishName]].ToString()))
                     {
-                       
+
                         return GetEmployeeInfo(item);
                     }
                 }
                 else if (condition.Contains(item[dictionarys[Constant.EnglishName]].ToString()))
                 {
-                    
+
                     return GetEmployeeInfo(item);
                 }
             }
             return null;
+        }
+
+        public List<Employee> GetEmployees(string condition)
+        {
+            var employees = new List<Employee>();
+            var web = info.GetWeb1();
+            var list = web.Lists.GetByTitle("China Employees List");
+            info.ChinaAdministrationContext.Load(list);
+            info.ChinaAdministrationContext.ExecuteQuery();
+            var items = list.GetItems(new CamlQuery());
+            info.ChinaAdministrationContext.Load(items);
+            info.ChinaAdministrationContext.ExecuteQuery();
+
+            foreach (var item in items)
+            {
+                if (item[dictionarys[Constant.Name]] != null)
+                {
+                    if (condition.Contains(item[dictionarys[Constant.Name]].ToString()) || condition.Contains(item[dictionarys[Constant.EnglishName]].ToString()))
+                    {
+
+                        employees.Add(GetEmployeeInfo(item));
+                    }
+                }
+                else if (condition.Contains(item[dictionarys[Constant.EnglishName]].ToString()))
+                {
+
+                    employees.Add(GetEmployeeInfo(item));
+                }
+            }
+            return employees;
         }
 
         public Employee GetEmployeeInfo(ListItem item)

@@ -52,8 +52,17 @@ namespace SharePointTools
                             Console.WriteLine("输入命令的格式不对,重新输入:");
                             condition = Console.ReadLine();
                         }
-                        var employee = operaion.GetEmployee(condition);
-                        Console.WriteLine(employee==null ? "没有找到相关用户": employee.ToString());
+                        var employees = operaion.GetEmployees(condition);
+                        
+                        Console.WriteLine(employees.Count == 0 ? "没有找到相关员工:": "查找员工信息如下:");
+                        if (employees.Count != 0)
+                        {
+                            foreach (var employee in employees)
+                            {
+                                Console.WriteLine(employee.ToString());
+                            }
+                        }
+                        
                         break;
                     case 2: System.Environment.Exit(0); break;
                 }

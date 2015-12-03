@@ -4,3 +4,9 @@ c:\users\tyang\documents\visual studio 2013\Projects\SharePointTools\SharePointT
 c:\users\tyang\documents\visual studio 2013\Projects\SharePointTools\SharePointTools\obj\Debug\SharePointTools.csprojResolveAssemblyReference.cache
 c:\users\tyang\documents\visual studio 2013\Projects\SharePointTools\SharePointTools\obj\Debug\SharePointTools.exe
 c:\users\tyang\documents\visual studio 2013\Projects\SharePointTools\SharePointTools\obj\Debug\SharePointTools.pdb
+D:\GitProject\SharePointTool\SharePointTools\bin\Debug\SharePointTools.exe.config
+D:\GitProject\SharePointTool\SharePointTools\obj\Debug\SharePointTools.exe
+D:\GitProject\SharePointTool\SharePointTools\obj\Debug\SharePointTools.pdb
+D:\GitProject\SharePointTool\SharePointTools\bin\Debug\SharePointTools.exe
+D:\GitProject\SharePointTool\SharePointTools\bin\Debug\SharePointTools.pdb
+D:\GitProject\SharePointTool\SharePointTools\obj\Debug\SharePointTools.csprojResolveAssemblyReference.cache
