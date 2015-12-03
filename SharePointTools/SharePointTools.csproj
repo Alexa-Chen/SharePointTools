@@ -55,6 +55,7 @@
     <Compile Include="Services\SharePointOperaion.cs" />
     <Compile Include="Tools\Constant.cs" />
     <Compile Include="Tools\DicOfName.cs" />
+    <Compile Include="Tools\Dimission.cs" />
     <Compile Include="Tools\Utility.cs" />
     <Compile Include="Tools\WebDownload.cs" />
   </ItemGroup>

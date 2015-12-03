@@ -9,6 +9,7 @@ namespace SharePointTools.Services
     {
         private SharePointInfo info = new SharePointInfo();
         private Dictionary<string, string> dictionarys = DicOfName.GetDictionarys();
+
         public List<Employee> GetAllEmployees()
         {
             var employees = new List<Employee>();
@@ -30,7 +31,8 @@ namespace SharePointTools.Services
             {
                 if (item[dictionarys[Constant.Name]] != null)
                 {
-                    if (condition.Contains(item[dictionarys[Constant.Name]].ToString()) || condition.Contains(item[dictionarys[Constant.EnglishName]].ToString()))
+                    if (condition.Contains(item[dictionarys[Constant.Name]].ToString()) ||
+                        condition.Contains(item[dictionarys[Constant.EnglishName]].ToString()))
                     {
 
                         return GetEmployeeInfo(item);
@@ -60,7 +62,8 @@ namespace SharePointTools.Services
             {
                 if (item[dictionarys[Constant.Name]] != null)
                 {
-                    if (condition.Contains(item[dictionarys[Constant.Name]].ToString()) || condition.Contains(item[dictionarys[Constant.EnglishName]].ToString()))
+                    if (condition.Contains(item[dictionarys[Constant.Name]].ToString()) ||
+                        condition.Contains(item[dictionarys[Constant.EnglishName]].ToString()))
                     {
 
                         employees.Add(GetEmployeeInfo(item));
@@ -73,6 +76,56 @@ namespace SharePointTools.Services
                 }
             }
             return employees;
+        }
+
+        public List<Employee> GetIsLeaveEmployees(string condition, Dimission isLeave = Dimission.All)
+        {
+            var employees = new List<Employee>();
+            var web = info.GetWeb1();
+            var list = web.Lists.GetByTitle("China Employees List");
+            info.ChinaAdministrationContext.Load(list);
+            info.ChinaAdministrationContext.ExecuteQuery();
+            var items = list.GetItems(new CamlQuery());
+            info.ChinaAdministrationContext.Load(items);
+            info.ChinaAdministrationContext.ExecuteQuery();
+
+            foreach (var item in items)
+            {
+                if (item[dictionarys[Constant.Name]] != null)
+                {
+                    if (condition.Contains(item[dictionarys[Constant.Name]].ToString()) ||
+                        condition.Contains(item[dictionarys[Constant.EnglishName]].ToString()))
+                    {
+                        employees.Add(GetOneDimissionEmployee(item,isLeave));
+                    }
+                }
+                else if (condition.Contains(item[dictionarys[Constant.EnglishName]].ToString()))
+                {
+
+                    employees.Add(GetOneDimissionEmployee(item, isLeave));
+                }
+            }
+            return employees;
+        }
+
+        public Employee GetOneDimissionEmployee(ListItem item, Dimission isLeave = Dimission.All)
+        {
+            if (isLeave.Equals(Dimission.NotLeave) && item[dictionarys[Constant.IsLeave]].ToString().Equals("否"))
+            {
+                return  GetEmployeeInfo(item);
+            }
+            else if (isLeave.Equals(Dimission.HavedLeave) && item[dictionarys[Constant.IsLeave]].ToString().Equals("是"))
+            {
+                return GetEmployeeInfo(item);
+            }
+            else if (isLeave.Equals(Dimission.All))
+            {
+                return GetEmployeeInfo(item);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public Employee GetEmployeeInfo(ListItem item)

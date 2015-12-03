@@ -1,5 +1,6 @@
 ﻿using System;
 using SharePointTools.Services;
+using SharePointTools.Tools;
 using Utility = SharePointTools.Tools.Utility;
 
 namespace SharePointTools
@@ -52,17 +53,17 @@ namespace SharePointTools
                             Console.WriteLine("输入命令的格式不对,重新输入:");
                             condition = Console.ReadLine();
                         }
-                        var employees = operaion.GetEmployees(condition);
-                        
-                        Console.WriteLine(employees.Count == 0 ? "没有找到相关员工:": "查找员工信息如下:");
+                        var employees = operaion.GetIsLeaveEmployees(condition, Dimission.NotLeave);
+
+                        Console.WriteLine(employees.Count == 0 ? "没有找到相关员工:" : "查找员工信息如下:");
                         if (employees.Count != 0)
                         {
                             foreach (var employee in employees)
                             {
-                                Console.WriteLine(employee.ToString());
+                                Console.WriteLine(employee == null ? "" : employee.ToString());
                             }
                         }
-                        
+
                         break;
                     case 2: System.Environment.Exit(0); break;
                 }
