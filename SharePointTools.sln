@@ -5,6 +5,14 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePointTools", "SharePointTools\SharePointTools.csproj", "{FF0F64F2-851B-4181-AFE0-21B0C8403D53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePointTools.Services", "SharePointTools.Services\SharePointTools.Services.csproj", "{457660B4-6854-4A06-ADD5-13BFA9DC00F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePointTools.Domain", "SharePointTools.Domain\SharePointTools.Domain.csproj", "{C5091CD1-A79A-4FFF-B606-75B6AEEF507F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePointTools.Utility", "SharePointTools.Utility\SharePointTools.Utility.csproj", "{BF40E315-E166-40BB-9D96-290CC4D150E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePointTools.Services.Interface", "SharePointTools.Services.Interface\SharePointTools.Services.Interface.csproj", "{EEE30A4C-881E-4E23-B584-45CA677C98F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{FF0F64F2-851B-4181-AFE0-21B0C8403D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF0F64F2-851B-4181-AFE0-21B0C8403D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF0F64F2-851B-4181-AFE0-21B0C8403D53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{457660B4-6854-4A06-ADD5-13BFA9DC00F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{457660B4-6854-4A06-ADD5-13BFA9DC00F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{457660B4-6854-4A06-ADD5-13BFA9DC00F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{457660B4-6854-4A06-ADD5-13BFA9DC00F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5091CD1-A79A-4FFF-B606-75B6AEEF507F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5091CD1-A79A-4FFF-B606-75B6AEEF507F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5091CD1-A79A-4FFF-B606-75B6AEEF507F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5091CD1-A79A-4FFF-B606-75B6AEEF507F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF40E315-E166-40BB-9D96-290CC4D150E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF40E315-E166-40BB-9D96-290CC4D150E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF40E315-E166-40BB-9D96-290CC4D150E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF40E315-E166-40BB-9D96-290CC4D150E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE30A4C-881E-4E23-B584-45CA677C98F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE30A4C-881E-4E23-B584-45CA677C98F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE30A4C-881E-4E23-B584-45CA677C98F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE30A4C-881E-4E23-B584-45CA677C98F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

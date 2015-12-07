@@ -1,0 +1,4 @@
+D:\GitProject\SharePointTool\SharePointTools.Utility\bin\Debug\SharePointTools.Utility.dll
+D:\GitProject\SharePointTool\SharePointTools.Utility\bin\Debug\SharePointTools.Utility.pdb
+D:\GitProject\SharePointTool\SharePointTools.Utility\obj\Debug\SharePointTools.Utility.dll
+D:\GitProject\SharePointTool\SharePointTools.Utility\obj\Debug\SharePointTools.Utility.pdb

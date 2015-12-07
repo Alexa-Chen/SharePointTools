@@ -1,7 +1,7 @@
 ﻿using System;
 using SharePointTools.Services;
 using SharePointTools.Tools;
-using Utility = SharePointTools.Tools.Utility;
+using SharePointTools.Utility;
 
 namespace SharePointTools
 {
@@ -32,12 +32,12 @@ namespace SharePointTools
             //    var path = Constant.RootSite + fitem["FileRef"];
             //    WebDownload.Saveimage(path,"D:/photos/"+fileName);
             //}
-            Utility.Menu();
+            MenuOperation.Menu();
             while (true)
             {
                 Console.WriteLine("输入选项:");
                 var optionContent = Console.ReadLine();
-                if (!Utility.IsNumber(optionContent))
+                if (!MenuOperation.IsNumber(optionContent))
                 {
                     Console.WriteLine("选项错误，请重新输入.");
                     continue;
@@ -100,7 +100,6 @@ namespace SharePointTools
             //    Console.WriteLine(items.ElementAt(i).FieldValues["_x5934__x50cf_"]);
             //    Console.WriteLine("\n");
             //}
-            Console.ReadKey();
         }
     }
 }

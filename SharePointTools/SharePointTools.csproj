@@ -32,11 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.SharePoint.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>ThreeDLL\Microsoft.SharePoint.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
@@ -47,23 +42,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IServices\ISharePointOperation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Employee.cs" />
-    <Compile Include="Services\SharePointInfo.cs" />
-    <Compile Include="Services\SharePointOperaion.cs" />
-    <Compile Include="Tools\Constant.cs" />
-    <Compile Include="Tools\DicOfName.cs" />
-    <Compile Include="Tools\Dimission.cs" />
-    <Compile Include="Tools\Utility.cs" />
-    <Compile Include="Tools\WebDownload.cs" />
+    <Compile Include="Tools\MenuOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ThreeDLL\Microsoft.SharePoint.Client.dll" />
+    <ProjectReference Include="..\SharePointTools.Domain\SharePointTools.Domain.csproj">
+      <Project>{c5091cd1-a79a-4fff-b606-75b6aeef507f}</Project>
+      <Name>SharePointTools.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharePointTools.Services.Interface\SharePointTools.Services.Interface.csproj">
+      <Project>{EEE30A4C-881E-4E23-B584-45CA677C98F6}</Project>
+      <Name>SharePointTools.Services.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharePointTools.Services\SharePointTools.Services.csproj">
+      <Project>{457660b4-6854-4a06-add5-13bfa9dc00f0}</Project>
+      <Name>SharePointTools.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharePointTools.Utility\SharePointTools.Utility.csproj">
+      <Project>{bf40e315-e166-40bb-9d96-290cc4d150e9}</Project>
+      <Name>SharePointTools.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

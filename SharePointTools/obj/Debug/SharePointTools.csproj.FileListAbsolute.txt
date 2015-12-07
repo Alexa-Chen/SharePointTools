@@ -10,3 +10,11 @@ D:\GitProject\SharePointTool\SharePointTools\obj\Debug\SharePointTools.pdb
 D:\GitProject\SharePointTool\SharePointTools\bin\Debug\SharePointTools.exe
 D:\GitProject\SharePointTool\SharePointTools\bin\Debug\SharePointTools.pdb
 D:\GitProject\SharePointTool\SharePointTools\obj\Debug\SharePointTools.csprojResolveAssemblyReference.cache
+D:\GitProject\SharePointTool\SharePointTools\bin\Debug\SharePointTools.Domain.dll
+D:\GitProject\SharePointTool\SharePointTools\bin\Debug\SharePointTools.Services.dll
+D:\GitProject\SharePointTool\SharePointTools\bin\Debug\SharePointTools.Services.Interface.dll
+D:\GitProject\SharePointTool\SharePointTools\bin\Debug\SharePointTools.Utility.dll
+D:\GitProject\SharePointTool\SharePointTools\bin\Debug\SharePointTools.Domain.pdb
+D:\GitProject\SharePointTool\SharePointTools\bin\Debug\SharePointTools.Services.Interface.pdb
+D:\GitProject\SharePointTool\SharePointTools\bin\Debug\SharePointTools.Services.pdb
+D:\GitProject\SharePointTool\SharePointTools\bin\Debug\SharePointTools.Utility.pdb
