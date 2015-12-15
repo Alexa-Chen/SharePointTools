@@ -38,16 +38,19 @@ namespace SharePointTools.Utility
         /// </summary>
         /// <param name="response">The response used to save the file</param>
         // 将二进制文件保存到磁盘
-        private static bool SaveBinaryFile(WebResponse response, string FileName)
+        private static bool SaveBinaryFile(WebResponse response, String fileName)
         {
             var value = true;
             var buffer = new byte[1024];
 
             try
             {
-                if (File.Exists(FileName))
-                    File.Delete(FileName);
-                Stream outStream = System.IO.File.Create(FileName);
+                if (File.Exists(fileName))
+                {
+                    File.Delete(fileName);
+                }
+                
+                Stream outStream = System.IO.File.Create(fileName);
                 var inStream = response.GetResponseStream();
 
                 int l;
@@ -55,7 +58,10 @@ namespace SharePointTools.Utility
                 {
                     l = inStream.Read(buffer, 0, buffer.Length);
                     if (l > 0)
+                    {
                         outStream.Write(buffer, 0, l);
+                    }
+                    
                 }
                 while (l > 0);
 
@@ -69,10 +75,9 @@ namespace SharePointTools.Utility
             return value;
         }
 
-        public static void Saveimage(string url, string filepath)
+        public static void SavePicture(string url, string filepath)
         {
-            var client = new WebClient();
-            client.UseDefaultCredentials = true;
+            var client = new WebClient { UseDefaultCredentials = true };
             try
             {
                 client.DownloadFile(url, filepath);
@@ -82,7 +87,29 @@ namespace SharePointTools.Utility
 
                 Console.WriteLine(ex.ToString());
             }
+
+        }
+
+        public static Picture GetPictureContent(string url, string filepath)
+        {
+            SavePicture(url, filepath);
+            var length = 0;
+            Stream stream = File.Open(filepath, FileMode.Open);
+            if (stream.Length < Int32.MaxValue)
+            {
+                length = (int)stream.Length;
+            }
+            var pictureBuffer = new byte[length];
+            stream.Read(pictureBuffer, 0, length);
+
+            stream.Close();
+            var pictrueString = Convert.ToBase64String(pictureBuffer);
             
+            return new Picture()
+            {
+                Content = "data:image/jpeg;base64," + pictrueString,
+                Size = length
+            };
         }
     }
 }

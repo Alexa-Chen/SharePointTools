@@ -42,6 +42,7 @@
     <Compile Include="Constant.cs" />
     <Compile Include="DicOfName.cs" />
     <Compile Include="Dimission.cs" />
+    <Compile Include="Picture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebDownLoad.cs" />
   </ItemGroup>

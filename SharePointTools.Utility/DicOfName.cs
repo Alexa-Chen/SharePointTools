@@ -11,6 +11,7 @@ namespace SharePointTools.Utility
             if (dictionarys != null)
             {
                 dictionarys.Add(Constant.NO, "Title");
+                dictionarys.Add(Constant.Picture, "_x5934__x50cf_");
                 dictionarys.Add(Constant.ID, "_x5458__x5de5_ID");
                 dictionarys.Add(Constant.Name, "_x59d3__x540d_");
                 dictionarys.Add(Constant.Sex, "_x6027__x522b_");

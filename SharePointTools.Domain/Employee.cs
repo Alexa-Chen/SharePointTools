@@ -47,6 +47,7 @@ namespace SharePointTools.Domain
         {
             var stringBuilder = new StringBuilder();
             stringBuilder.Append(Constant.NO + ":" + this.NO + "\n");
+            stringBuilder.Append(Constant.Picture + ":" + this.MediumPicture + "\n");
             stringBuilder.Append(Constant.ID + ":" + this.ID + "\n");
             stringBuilder.Append(Constant.Name + ":" + this.Name + "\n");
             stringBuilder.Append(Constant.Sex + ":" + this.Sex + "\n");

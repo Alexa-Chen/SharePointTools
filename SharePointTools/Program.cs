@@ -30,7 +30,7 @@ namespace SharePointTools
             //{
             //    var fileName = fitem["FileLeafRef"].ToString();
             //    var path = Constant.RootSite + fitem["FileRef"];
-            //    WebDownload.Saveimage(path,"D:/photos/"+fileName);
+            //    WebDownload.SavePicture(path,"D:/photos/"+fileName);
             //}
             MenuOperation.Menu();
             while (true)

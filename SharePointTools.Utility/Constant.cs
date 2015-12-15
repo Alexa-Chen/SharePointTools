@@ -3,6 +3,7 @@ namespace SharePointTools.Utility
 {
     public class Constant
     {
+        #region 员工信息开始
         public static readonly string RootSite = "https://cnportal.avepoint.net";
         public static readonly string NO = "工号";
         public static readonly string Picture = "图像";
@@ -36,5 +37,11 @@ namespace SharePointTools.Utility
         public static readonly string LeaveDate = "离职日期";
         public static readonly string EditInHRIS = "Edit In HRIS";
         public static readonly string IDNumber = "ID Number";
+        #endregion 员工信息结束
+
+        #region
+        public static readonly string PictureSaveDirectory = "D:/pic";
+        #endregion
+
     }
 }

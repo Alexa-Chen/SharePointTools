@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Microsoft.SharePoint.Client;
 using SharePointTools.Domain;
 using SharePointTools.Services.Interface;
@@ -49,6 +51,19 @@ namespace SharePointTools.Services
             return null;
         }
 
+        public List<Employee> GetEmployees()
+        {
+            var web = info.GetWeb1();
+            var list = web.Lists.GetByTitle("China Employees List");
+            info.ChinaAdministrationContext.Load(list);
+            info.ChinaAdministrationContext.ExecuteQuery();
+            var items = list.GetItems(new CamlQuery());
+            info.ChinaAdministrationContext.Load(items);
+            info.ChinaAdministrationContext.ExecuteQuery();
+            return items.Select(item => GetEmployeeInfo(item)).ToList();
+        }
+
+
         public List<Employee> GetEmployees(string condition)
         {
             var employees = new List<Employee>();
@@ -98,7 +113,7 @@ namespace SharePointTools.Services
                     if (condition.Contains(item[dictionarys[Constant.Name]].ToString()) ||
                         condition.Contains(item[dictionarys[Constant.EnglishName]].ToString()))
                     {
-                        employees.Add(GetOneDimissionEmployee(item,isLeave));
+                        employees.Add(GetOneDimissionEmployee(item, isLeave));
                     }
                 }
                 else if (condition.Contains(item[dictionarys[Constant.EnglishName]].ToString()))
@@ -114,7 +129,7 @@ namespace SharePointTools.Services
         {
             if (isLeave.Equals(Dimission.NotLeave) && item[dictionarys[Constant.IsLeave]].ToString().Equals("否"))
             {
-                return  GetEmployeeInfo(item);
+                return GetEmployeeInfo(item);
             }
             else if (isLeave.Equals(Dimission.HavedLeave) && item[dictionarys[Constant.IsLeave]].ToString().Equals("是"))
             {
@@ -132,9 +147,27 @@ namespace SharePointTools.Services
 
         public Employee GetEmployeeInfo(ListItem item)
         {
+            FieldUrlValue fileUrl = null;
+            Picture picture = null;
+            if (item[dictionarys[Constant.Picture]] != null)
+            {
+                fileUrl = item[dictionarys[Constant.Picture]] as FieldUrlValue;
+            }
+            if (fileUrl != null)
+            {
+                if (!Directory.Exists(Constant.PictureSaveDirectory))
+                {
+                    Directory.CreateDirectory(Constant.PictureSaveDirectory);
+                }
+                picture = WebDownload.GetPictureContent(fileUrl.Url, Constant.PictureSaveDirectory+ "/" + fileUrl.Url.Substring(fileUrl.Url.LastIndexOf('/') + 1));
+            }
+
+
             var employee = new Employee()
             {
                 NO = item[dictionarys[Constant.NO]] == null ? "" : item[dictionarys[Constant.NO]].ToString(),
+                MediumPicture = fileUrl == null ? "" : picture.Content,
+                MediumPicturePath = fileUrl == null ? "" : fileUrl.Url,
                 ID = item[dictionarys[Constant.ID]] == null ? "" : item[dictionarys[Constant.ID]].ToString(),
                 Name = item[dictionarys[Constant.Name]] == null ? "" : item[dictionarys[Constant.Name]].ToString(),
                 Sex = item[dictionarys[Constant.Sex]] == null ? "" : item[dictionarys[Constant.Sex]].ToString(),
