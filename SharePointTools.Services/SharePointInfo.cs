@@ -37,12 +37,12 @@ namespace SharePointTools.Services
             System.Net.ServicePointManager.ServerCertificateValidationCallback = ((sender, certificate, chain, sslPolicyErrors) => true);
             this.ChinaAdministrationContext = new ClientContext(address1);
             var ses = new SecureString();
-            const string pswd = "yt@19940124";
+            const string pswd = "******";
             foreach (var c in pswd)
             {
                 ses.AppendChar(c);
             }
-            ChinaAdministrationContext.Credentials = new NetworkCredential("AvePoint\\tyang", ses);
+            ChinaAdministrationContext.Credentials = new NetworkCredential("******", ses);//******为登陆Web的用户名
             return this.ChinaAdministrationContext;
         }
 
@@ -51,12 +51,12 @@ namespace SharePointTools.Services
             System.Net.ServicePointManager.ServerCertificateValidationCallback = ((sender, certificate, chain, sslPolicyErrors) => true);
             this.ChinaAdministrationContext = new ClientContext(address2);
             var ses = new SecureString();
-            const string pswd = "yt@19940124";
+            const string pswd = "******";
             foreach (var c in pswd)
             {
                 ses.AppendChar(c);
             }
-            ChinaAdministrationContext.Credentials = new NetworkCredential("AvePoint\\tyang", ses);
+            ChinaAdministrationContext.Credentials = new NetworkCredential("******", ses);//******为登陆Web的用户名
             return this.MyContext;
         }
     }
